@@ -4,6 +4,7 @@ import './Order.css'
 const Order = (props) => {
 
     const { order } = props;
+    console.log(props.children)
     // const totalReducer = (previous, product) => previous + product.price;
     // const total = cart.reduce(totalReducer, 0);
     let totalQuantity = 0;
@@ -29,9 +30,8 @@ const Order = (props) => {
             <p>Shipping: {shipping}</p>
             <p>tax: {tax.toFixed(2)}</p>
             <p>Grand Total: {grandTotal.toFixed(2)}</p>
-            <button   
-                    className="btn-regular">place Order
-             </button>
+            {props.children}
+           
     
         </div>
     )

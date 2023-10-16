@@ -5,14 +5,15 @@ import Card from '../Card/Card';
 import Order from '../Order/Order';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import { removeFromDb } from '../../utilities/fakedb';
+import { Link } from 'react-router-dom';
 
 const OrderReview = () => {
-    const [products,setProducts] = useProducts();
-    const [order, setCard] = useCard(products);
+    const [products] = useProducts();
+    const [order, setOrder] = useCard(products);
 
     const handleRemove = key =>{
        const removeOrder= order.filter(product=>product.key !== key)
-       setCard(removeOrder)
+       setOrder(removeOrder)
        removeFromDb(key)
     }
     // const handlePlaceOrder =() =>{
@@ -39,7 +40,11 @@ const OrderReview = () => {
             </div>
 
             <div className="cart-container">
-                <Order order={order}></Order>
+              
+               <Order order={order}>
+               <Link> <button  className="btn-regular">Place Order</button></Link>
+                </Order>
+             
             </div>
            </div>
        

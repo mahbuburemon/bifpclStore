@@ -3,6 +3,7 @@ import './Products.css';
 import Product1 from '../Product1/Product1';
 import Order from '../Order/Order';
 import{addToDb, getStoredCart} from '../../utilities/fakedb'
+import { Link } from 'react-router-dom';
 
 
 const Products = () => {
@@ -81,7 +82,11 @@ const Products = () => {
                         
                         </div>
                         <div className="cart-container">
-                            <Order order={order}></Order>
+                            <Order order={order}>
+                                <Link to="/review">
+                                <button  className="btn-regular">Check Order</button>
+                                </Link>
+                            </Order>
 
                         </div>
                 </div>
